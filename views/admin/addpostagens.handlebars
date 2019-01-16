@@ -1,0 +1,43 @@
+
+<div class="card">
+  <div class="card-body">
+    <h2 class="card-title">Nova postagen</h2>
+    {{#each erros}}
+      <div class="alert alert-danger">{{texto}}</div>
+    {{else}}
+    {{/each}}
+    <form action="/admin/postagens/store" method="POST">
+      <div class="form-group">
+        <label >Titulo:</label>
+        <input class="form-control" name="titulo" placeholder="titulo da postagem" >
+      </div>
+      <div class="form-group">
+        <label >Slug</label>
+        <input class="form-control" name="slug" placeholder="slug da postagne" >
+      </div>
+      <div class="form-group">
+        <label >Descrição:</label>
+        <input class="form-control" name="descricao" placeholder="Descrição da postagem" >
+      </div>
+      <div class="form-group">
+        <label >Conteúdo:</label>
+        <textarea class="form-control" name="conteudo" placeholder="Conteúdo da postagem" ></textarea>
+      </div>
+      <div class="form-group">
+        <label >Autor:</label>
+        <input class="form-control" name="autor" placeholder="Autor da postagem" >
+      </div>
+      <div class="form-group">
+        <label >Categoria:</label>
+        <select class="form-control" name="categoria"  >
+          {{#each categorias}}
+            <option value="{{_id}}">{{nome}}</option>
+          {{else}}
+            <option value="">Nenhuma categoria encontrada</option>
+          {{/each}}
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Criar</button>
+    </form>
+ </div>
+</div>
